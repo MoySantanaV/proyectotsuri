@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const port = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
 // conexion a base de datos
 const mongoose = require('mongoose');
@@ -35,6 +35,6 @@ app.use((req, res, next) => {
     res.status(404).render('404')
 })
 
-app.listen(port, () => {
-    console.log('servidor a su servicio en el puerto', port);
+app.listen(PORT, () => {
+    console.log('servidor a su servicio en el puerto', PORT);
 }) 
