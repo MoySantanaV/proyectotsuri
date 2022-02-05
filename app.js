@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express()
 
+require('dotenv').config()
+
 const PORT = process.env.PORT || 3000
 
 // conexion a base de datos
 const mongoose = require('mongoose');
 
-const user = 'Admin'
-const password = 'wUuiD1mBqXLs7yBf'
-const dbname = 'ProyectoTSURI'
-const uri = `mongodb+srv://${user}:${password}@cluster0.ylh9v.mongodb.net/${dbname}?retryWrites=true&w=majority`
+
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.ylh9v.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
 
 mongoose.connect(uri,
     {useNewUrlParser: true, useUnifiedTopology: true}
