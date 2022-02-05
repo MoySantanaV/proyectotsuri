@@ -1,0 +1,32 @@
+<%- include('template/header', {tituloPagina: 'Index'}) %>
+
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">nombre</th>
+                <th scope="col">descripcion</th>
+                <th scope="col">accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (arrayproyeccionesRadiologicas.length > 0) { %>
+            <% arrayproyeccionesRadiologicas.forEach(element => { %>
+            <tr>
+                <th scope="row"><%= element.id %> </th>
+                <td><%= element.nombre %> </td>
+                <td><%= element.descripcion %> </td>
+                <td>@mdo</td>
+            </tr>
+            <% }) %>
+
+            <% } %>
+
+
+        </tbody>
+    </table>
+
+</div>
