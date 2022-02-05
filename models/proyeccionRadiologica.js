@@ -7,6 +7,6 @@ const proyeccionRadiologicaSchema = new Schema({
 })
 
 //crear modelo
-const proyeccionRadiologica = mongoose.model('proyeccionRadiologica', proyeccionRadiologicaSchema)
+const proyeccionRadiologica = mongoose.model('proyeccionRadiologica', proyeccionRadiologicaSchema, "ProyectoTSURI" )
 
 module.exports = proyeccionRadiologica
