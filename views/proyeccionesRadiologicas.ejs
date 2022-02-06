@@ -2,7 +2,10 @@
 
 
 <div class="container">
-
+    <h1> CRUD Proyecciones Radiológicas</h1>
+    <a class="btn btn-success btn-block my-4" href="/proyeccionesRadiologicas/Crear">
+        Crear nueva proyeccion
+    </a>
     <table class="table">
         <thead>
             <tr>
@@ -19,7 +22,7 @@
                 <th scope="row"><%= element.id %> </th>
                 <td><%= element.nombre %> </td>
                 <td><%= element.descripcion %> </td>
-                <td>@mdo</td>
+                <td> <a class="btn btn-warning" href="/proyeccionesRadiologicas/<%= element.id %>">Editar</a></td>
             </tr>
             <% }) %>
 

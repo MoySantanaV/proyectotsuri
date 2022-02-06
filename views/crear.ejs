@@ -1,0 +1,15 @@
+<%- include('template/header', {tituloPagina: 'Creando...'})  %>
+
+<div class="container">
+    <h2>Creando...</h2>
+    <form action="/proyeccionesRadiologicas" method="POST">
+        <input name="nombre" type="text" placeholder="Agregar Nombre" class="form-control my-2">
+        <input name="descripcion" type="text" placeholder="Agregar Descripcion" class="form-control my-2">
+        <button class="btn btn-success btn-block" type="submit">
+            Agregar
+        </button>
+    </form>
+</div>
+</body>
+
+</html>

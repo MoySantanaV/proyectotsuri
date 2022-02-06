@@ -1,0 +1,38 @@
+<%- include('template/header', {tituloPagina: 'Detalle Proyecciones'})  %>
+
+<div class="container">
+    <h2>Detalle proyecciones</h2>
+
+    <% if (error) { %>
+    <p>
+        <%= mensaje %>
+    </p>
+    <a href="/proyeccionesRadiologicas" class="btn btn-dark btn-block">volver a Proyecciones Radiologicas</a>
+
+    <% } %>
+
+    <% if (!error) { %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">nombre</th>
+                <th scope="col">descripcion</th>
+                <th scope="col">accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><%= proyeccionRadiologica.id %> </th>
+                <td><%= proyeccionRadiologica.nombre %> </td>
+                <td><%= proyeccionRadiologica.descripcion %> </td>
+                <td>@mdo</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/proyeccionesRadiologicas" class="btn btn-dark btn-block">volver a Proyecciones Radiologicas</a>
+    <% } %>
+</div>
+</body>
+
+</html>
