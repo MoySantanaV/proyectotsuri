@@ -1,13 +1,22 @@
-<%- include('template/header', {tituloPagina: 'Creando...'})  %>
+<%- include('template/header', {tituloPagina: 'Datos a ingresar'})  %>
 
 <div class="container">
-    <h2>Creando...</h2>
+    <h2>Datos a ingresar</h2>
     <form action="/proyeccionesRadiologicas" method="POST">
-        <input name="nombre" type="text" placeholder="Agregar Nombre" class="form-control my-2">
-        <input name="descripcion" type="text" placeholder="Agregar Descripcion" class="form-control my-2">
-        <button class="btn btn-success btn-block" type="submit">
-            Agregar
-        </button>
+        <input name="proyeccion" type="text" placeholder="Agregar Proyeccion" class="form-control my-2">
+        <input name="factoresDeExposicion" type="text" placeholder="Agregar Factores De Exposición"
+            class="form-control my-2">
+        <input name="estructuraAnatomica" type="text" placeholder="Agregar Estructura Anatomica"
+            class="form-control my-2">
+        <input name="tamañoDeLaPlaca" type="text" placeholder="Agregar Tamaño De La Placa" class="form-control my-2">
+        <input name="posicion" type="text" placeholder="Agregar Posición" class="form-control my-2">
+        <input name="rayoCentral" type="text" placeholder="Agregar Rayo Central" class="form-control my-2">
+
+
+
+        <button class="btn btn-success" type="submit">Agregar</button>
+        <a href="/proyeccionesRadiologicas" class="btn btn-dark">Volver a Proyecciones Radiologicas</a>
+
     </form>
 </div>
 </body>

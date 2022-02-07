@@ -10,9 +10,13 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">nombre</th>
-                <th scope="col">descripcion</th>
-                <th scope="col">accion</th>
+                <th scope="col">Proyección</th>
+                <th scope="col">Estructura anatómica</th>
+                <th scope="col">Factores de exposición</th>
+                <th scope="col">Tamaño de la placa</th>
+                <th scope="col">Posición</th>
+                <th scope="col">Rayo Central</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -20,8 +24,12 @@
             <% arrayproyeccionesRadiologicas.forEach(element => { %>
             <tr>
                 <th scope="row"><%= element.id %> </th>
-                <td><%= element.nombre %> </td>
-                <td><%= element.descripcion %> </td>
+                <td><%= element.proyeccion %> </td>
+                <td><%= element.estructuraAnatomica %> </td>
+                <td><%= element.factoresDeExposicion %> </td>
+                <td><%= element.tamañoDeLaPlaca %> </td>
+                <td><%= element.posicion %> </td>
+                <td><%= element.rayoCentral %> </td>
                 <td> <a class="btn btn-warning" href="/proyeccionesRadiologicas/<%= element.id %>">Editar</a></td>
             </tr>
             <% }) %>

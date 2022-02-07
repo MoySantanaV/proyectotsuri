@@ -12,27 +12,97 @@
     <% } %>
 
     <% if (!error) { %>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">nombre</th>
-                <th scope="col">descripcion</th>
-                <th scope="col">accion</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"><%= proyeccionRadiologica.id %> </th>
-                <td><%= proyeccionRadiologica.nombre %> </td>
-                <td><%= proyeccionRadiologica.descripcion %> </td>
-                <td>@mdo</td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="/proyeccionesRadiologicas" class="btn btn-dark btn-block">volver a Proyecciones Radiologicas</a>
+
+    <form id="formularioEditar" data-id="<%= proyeccionRadiologica.id %>">
+        <input id="proyeccionInput" type="text" class="form-control my-2" name="proyeccion"
+            value="<%= proyeccionRadiologica.proyeccion %>">
+        <input id="factoresDeExposicionInput" type="text" class="form-control my-2" name="factoresDeExposicion"
+            value="<%= proyeccionRadiologica.factoresDeExposicion%>">
+        <input id="estructuraAnatomicaInput" type="text" class="form-control my-2" name="estructuraAnatomica"
+            value="<%= proyeccionRadiologica.estructuraAnatomica%>">
+        <input id="tamañoDeLaPlacaInput" type="text" class="form-control my-2" name="tamañoDeLaPlaca"
+            value="<%= proyeccionRadiologica.tamañoDeLaPlaca%>">
+        <input id="posicionInput" type="text" class="form-control my-2" name="posicion"
+            value="<%= proyeccionRadiologica.posicion%>">
+        <input id="rayoCentralInput" type="text" class="form-control my-2" name="rayoCentral"
+            value="<%= proyeccionRadiologica.rayoCentral%>">
+        <button class="btn btn-warning" type="submit">Editar</button>
+
+        <button data-id="<%= proyeccionRadiologica.id %>" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+        <a href="/proyeccionesRadiologicas" class="btn btn-dark">Volver a Proyecciones Radiologicas</a>
+    </form>
+
     <% } %>
 </div>
 </body>
+
+<script>
+    const btnEliminar = document.querySelector('#btnEliminar')
+
+    btnEliminar.addEventListener('click', async () => {
+
+        const id = btnEliminar.dataset.id
+        try {
+            const data = await fetch(`/proyeccionesRadiologicas/${id}`, {
+                method: 'delete'
+            })
+            const res = await data.json()
+
+            if (res.estado) {
+                window.location.href = '/proyeccionesRadiologicas'
+            } else {
+                console.log(res);
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    })
+
+    const formularioEditar = document.querySelector('#formularioEditar')
+
+    formularioEditar.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        const proyeccion = document.querySelector('#proyeccionInput').value
+        const factoresDeExposicion = document.querySelector('#factoresDeExposicionInput').value
+        const estructuraAnatomica = document.querySelector('#estructuraAnatomicaInput').value
+        const tamañoDeLaPlaca = document.querySelector('#tamañoDeLaPlacaInput').value
+        const posicion = document.querySelector('#posicionInput').value
+        const rayoCentral = document.querySelector('#rayoCentralInput').value
+
+        const id = formularioEditar.dataset.id
+
+        try {
+
+            const data = await fetch(`/proyeccionesRadiologicas/${id}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    proyeccion,
+                    factoresDeExposicion,
+                    estructuraAnatomica,
+                    tamañoDeLaPlaca,
+                    posicion,
+                    rayoCentral
+                })
+            })
+
+            const res = await data.json()
+
+            if (res.estado) {
+                window.location.href = '/proyeccionesRadiologicas'
+            } else {
+                console.log(res);
+            }
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    })
+</script>
 
 </html>

@@ -2,8 +2,12 @@ const mongoose = require('mongoose')
 const  Schema  = mongoose.Schema;
   
 const proyeccionRadiologicaSchema = new Schema({
-    nombre: String,
-    descripcion: String
+    proyeccion: String,
+    estructuraAnatomica: String,
+    factoresDeExposicion: String,
+    tamañoDeLaPlaca: String,
+    posicion: String,
+    rayoCentral: String  
 })
 
 //crear modelo

@@ -61,4 +61,50 @@ router.get('/:id', async (req, res) => {
 } )
 
 
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+    
+    try {
+        const proyeccionRadiologicadb = await proyeccionRadiologica.findOneAndDelete({ _id: id })
+        
+        if (proyeccionRadiologicadb) {
+            res.json({
+                estado: true,
+                mensaje: 'Eliminado'
+            })
+        } else {
+            res.json({
+                estado: false,
+                mensaje: 'No se pudo eliminar'
+            })
+    }
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    const id = req.params.id
+    const body = req.body
+
+    try {
+
+        const proyeccionRadiologicadb = await proyeccionRadiologica.findByIdAndUpdate(
+            id, body, { useFindAndMoify: false })
+        
+        res.json({
+            estado: true,
+            mensaje: 'Editado'
+        })
+
+    } catch (error) {
+        console.log(error);
+            res.json({
+            estado: false,
+            mensaje: 'No se pudo editar'
+        })
+    }
+})
+
 module.exports = router
