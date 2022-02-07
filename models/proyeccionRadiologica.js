@@ -7,7 +7,8 @@ const proyeccionRadiologicaSchema = new Schema({
     factoresDeExposicion: String,
     tamañoDeLaPlaca: String,
     posicion: String,
-    rayoCentral: String  
+    rayoCentral: String,
+    instruccionesAlPaciente: String,
 })
 
 //crear modelo

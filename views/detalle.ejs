@@ -14,18 +14,27 @@
     <% if (!error) { %>
 
     <form id="formularioEditar" data-id="<%= proyeccionRadiologica.id %>">
+        <label>Proyección:</label>
         <input id="proyeccionInput" type="text" class="form-control my-2" name="proyeccion"
             value="<%= proyeccionRadiologica.proyeccion %>">
+        <label>Factores de exposición:</label>
         <input id="factoresDeExposicionInput" type="text" class="form-control my-2" name="factoresDeExposicion"
             value="<%= proyeccionRadiologica.factoresDeExposicion%>">
+        <label>Estructura anatómica:</label>
         <input id="estructuraAnatomicaInput" type="text" class="form-control my-2" name="estructuraAnatomica"
             value="<%= proyeccionRadiologica.estructuraAnatomica%>">
+        <label>Tamaño de la placa:</label>
         <input id="tamañoDeLaPlacaInput" type="text" class="form-control my-2" name="tamañoDeLaPlaca"
             value="<%= proyeccionRadiologica.tamañoDeLaPlaca%>">
+        <label>Posición</label>
         <input id="posicionInput" type="text" class="form-control my-2" name="posicion"
             value="<%= proyeccionRadiologica.posicion%>">
+        <label>Rayo central:</label>
         <input id="rayoCentralInput" type="text" class="form-control my-2" name="rayoCentral"
             value="<%= proyeccionRadiologica.rayoCentral%>">
+        <label>Instrucciones al paciente:</label>
+        <input id="instruccionesAlPacienteInput" type="text" class="form-control my-2" name="instruccionesAlPaciente"
+            value="<%= proyeccionRadiologica.instruccionesAlPaciente%>">
         <button class="btn btn-warning" type="submit">Editar</button>
 
         <button data-id="<%= proyeccionRadiologica.id %>" id="btnEliminar" class="btn btn-danger">Eliminar</button>
@@ -69,6 +78,7 @@
         const tamañoDeLaPlaca = document.querySelector('#tamañoDeLaPlacaInput').value
         const posicion = document.querySelector('#posicionInput').value
         const rayoCentral = document.querySelector('#rayoCentralInput').value
+        const instruccionesAlPaciente = document.querySelector('#instruccionesAlPacienteInput').value
 
         const id = formularioEditar.dataset.id
 
@@ -85,7 +95,8 @@
                     estructuraAnatomica,
                     tamañoDeLaPlaca,
                     posicion,
-                    rayoCentral
+                    rayoCentral,
+                    instruccionesAlPaciente
                 })
             })
 
